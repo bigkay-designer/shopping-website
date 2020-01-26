@@ -1,0 +1,48 @@
+let cartImg = document.querySelector('#cart-img')
+let cartTable = document.querySelector('#cart-table')
+let cartRow = document.querySelector('#cart-row')
+let itemDesc = document.querySelectorAll('.item-desc')
+let itemPrice = document.querySelectorAll('.item-desc')
+
+
+
+let cartBtn = document.querySelectorAll('#cart-btn')
+
+for (i = 0; i < cartBtn.length; i++){
+    cartBtn[i].addEventListener('click', function () {
+        let product = document.querySelector('#product')
+        let quantity = document.querySelector('#quantity')
+        let price = document.querySelector('#price')
+        let total = document.querySelector('#total')
+        
+        
+        let tabelRow = document.createElement('tr')
+        let tabelData = document.createElement('td')
+        let txt = document.createTextNode('list')
+        tabelData.appendChild(txt)
+        tabelRow.appendChild(tabelData)
+        cartTable.appendChild(tabelRow)
+        console.log(cartTable)
+        
+    //        for (i = 0; i < itemDesc.length; i++){
+
+    //          let tabelRow = document.createElement('tr')
+    //          let tabelData = document.createElement('td')
+    //          let txt = document.createTextNode(list)
+    //          tabelData.appendChild(txt)
+    //          tabelRow.appendChild(tabelData)
+    //          cartTable.appendChild(tabelRow)
+    //         console.log(cartTable)
+    //     }
+
+    })
+}
+
+
+cartImg.addEventListener('click', function () {
+    $('#cart-info').toggle()
+    $('#cart-table').css('background-color', '#adcee9')
+})
+
+
+
