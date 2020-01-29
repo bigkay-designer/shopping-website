@@ -1,67 +1,68 @@
-let cartImg = document.querySelector('#cart-img')
-let cartTable = document.querySelector('#cart-table')
-let cartRow = document.querySelector('#cart-row')
-let cartRowData = document.querySelector('#cartrow-data')
-let tableBody = document.querySelector('tbody')
-let itemDesc = document.querySelectorAll('.item-desc')
-let itemPrice = document.querySelectorAll('.item-price')
+let cartImg = document.querySelector('#cart-img');
+// let cartTable = document.querySelector('#cart-table');
+// let cartRow = document.querySelector('#cart-row');
+// let cartRowData = document.querySelector('#cartrow-data');
+// let tableBody = document.querySelector('tbody');
+let t1 = document.querySelector('#t1');
+let t2 = document.querySelector('#t2');
+let t3 = document.querySelector('t3');
+let t4 = document.querySelector('t4');
+let itemDesc = document.querySelectorAll('.item-desc');
+let itemQuan = document.querySelectorAll('#table-input');
+let itemPrice = document.querySelectorAll('.item-price');
+let cartBtn = document.querySelectorAll('#cart-btn');
 
+//changing it an array
+let itemQuanArr = Array.prototype.slice.call(itemQuan);
+let itemPriceArr = Array.prototype.slice.call(itemPrice);
+let itemDescArr = Array.prototype.slice.call(itemDesc);
 
+// looping through btns
 
-let cartBtn = document.querySelectorAll('#cart-btn')
-
-for (i = 0; i < cartBtn.length; i++){
-    cartBtn[i].addEventListener('click', function () {
-   
-
-    })
+for (i = 0; i < cartBtn.length; i++) {
+  cartBtn[i].addEventListener('click', function() {
+    addToCart();
+  });
 }
 
 function addToCart() {
-    
-    let tableHead = 4;
-    if (tableHead === 4) {
-        for (i = 0; i < 4; i++){
+  let tableArr = ['Products', 'Quantity', 'Price', ' Total'];
+  let tableData = [t1.textContent, '12'];
+  //creating a header for the table
+  let perHeader = 4,
+    html = '<table><tr>';
 
-            let product = document.createElement('th').textContent = 'product'
-            let quantity = document.createElement('th')
-            let price = document.createElement('th')
-            let total = document.createElement('th')
-            
-            let tHead = document.createElement('th')
-            let txt = document.createTextNode('')
-            tHead.appendChild(txt)
-            cartRow.appendChild(tHead)
-            tableBody.appendChild(cartRow)
-            // console.log(spli)
-        }
-
+  for (i = 0; i < tableArr.length; i++) {
+    html += '<th>' + tableArr[i] + '</th>';
+    let nextHead = i + 1;
+    if (nextHead % perHeader == 0 && nextHead != tableArr.length) {
+      html += '</tr><tr>';
     }
+  }
 
-    for (i = 0; i < itemDesc.length; i++){
-        let choiceDesc = itemDesc[i]
-        let listDesc = [];
-        listDesc.push(choiceDesc.innerText)
+  //adding the data to the table
+  let perRow = 4;
+  html += '<tr>';
 
-        let choicePrice = itemPrice[i]
-        let listPrice = [];
-        listPrice.push(choicePrice.innerText)
-        
-        let tabelData = document.createElement('td')
-        let txt = document.createTextNode(listDesc)
-        tabelData.appendChild(txt)
-        cartRowData.appendChild(tabelData)
-        tableBody.appendChild(cartRowData)
-        cartTable.appendChild(tableBody)
-        // console.log(cartTable)
+  for (r = 0; r < tableData.length; r++) {
+    html += '<td>' + tableData[r] + '</td>';
+    let nextRow = r + 1;
+    if (nextRow % perRow == 0 && nextRow != tableData.length) {
+      html += '</tr><tr>';
     }
+  }
+
+  console.log(html);
+  document.getElementById('cart-info').innerHTML = html;
 }
-addToCart()
 
-cartImg.addEventListener('click', function () {
-    $('#cart-info').toggle()
-    $('#cart-table').css('background-color', '#adcee9')
-})
+cartImg.addEventListener('click', function() {
+  $('#cart-info').toggle();
+  $('#cart-table').css('background-color', '#adcee9');
+});
 
-
-
+// for (i = 0; i < itemPriceArr.length; i++) {
+//     let itemPriceTxt = itemPriceArr[i].innerHTML;
+//     let itemQuanTxt = itemQuanArr[i].value;
+//     let itemDescTxt = itemDescArr[i].innerHTML;
+//   }

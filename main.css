@@ -47,11 +47,11 @@ body {
 #main-header .wrapper #main-navbar {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 0.60fr 2fr 0.60fr;
-      grid-template-columns: 0.60fr 2fr 0.60fr;
+  -ms-grid-columns: 0.6fr 2fr 0.6fr;
+      grid-template-columns: 0.6fr 2fr 0.6fr;
   -ms-grid-rows: auto;
       grid-template-rows: auto;
-      grid-template-areas: ". ul .";
+      grid-template-areas: '. ul .';
 }
 
 #main-header .wrapper #main-navbar ul {
@@ -131,8 +131,31 @@ body {
   letter-spacing: 1px;
 }
 
+#main #for-sale-items .item-paras #table-input {
+  padding: 7px 0;
+  border-radius: 12px;
+  border: none;
+  clear: both;
+}
+
+#main #for-sale-items .item-paras #table-input::-webkit-input-placeholder {
+  padding-left: 10px;
+}
+
+#main #for-sale-items .item-paras #table-input:-ms-input-placeholder {
+  padding-left: 10px;
+}
+
+#main #for-sale-items .item-paras #table-input::-ms-input-placeholder {
+  padding-left: 10px;
+}
+
+#main #for-sale-items .item-paras #table-input::placeholder {
+  padding-left: 10px;
+}
+
 #main #for-sale-items .item-paras .item-price {
-  margin-top: -8px;
+  letter-spacing: 1px;
 }
 
 #main #for-sale-items button {
