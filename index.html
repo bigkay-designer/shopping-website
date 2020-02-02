@@ -17,8 +17,16 @@
           </div>
 
             <div id="cart-info">
-                
-
+                <!-- <button type="button" onclick="myFunc()">Adds</button> -->
+                <table id="cart-table">
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </table>
+                <div>Total price:  <span id="cart-total"></span></div>
             </div>
         </div>
 
@@ -52,8 +60,10 @@
                 <img id="img1" src="./images/img1.jpeg" width="255px" height="235px" alt="">
                 <div class="item-paras">
                     <p class="item-desc">item 111 </p>
-                    <input id="table-input" type="number" placeholder ="Quantity">
+                    <input class="table-input" id="table-input" type="number" placeholder ="Quantity">
                     <p class="item-price"><span></span>199.00</p>
+                    <p class="total"></p>
+
                 </div>
                 <button id="cart-btn">Add</button>
             </div>
@@ -61,7 +71,7 @@
                 <img src="./images/img2.jpeg" width="255px" height="235px" alt="">
                 <div class="item-paras">
                     <p class="item-desc">item2.</p>
-                    <input id="table-input" type="number" placeholder ="Quantity">
+                    <input class="table-input" id="table-input" type="number" placeholder ="Quantity">
                     <p class="item-price"><span></span>299.00</p>
                 </div>
                 <button id="cart-btn">Add</button>
@@ -70,7 +80,7 @@
                 <img src="./images/img3.jpeg" width="255px" height="235px" alt="">
                 <div class="item-paras">
                     <p class="item-desc">item3.</p>
-                    <input id="table-input" type="number" placeholder ="Quantity">
+                    <input class="table-input" id="table-input" type="number" placeholder ="Quantity">
                     <p class="item-price"><span></span>399.00</p>
                 </div>
                 <button id="cart-btn">Add</button>
@@ -79,7 +89,7 @@
                 <img src="./images/img4.jpeg" width="255px" height="235px" alt="">
                 <div class="item-paras">
                     <p class="item-desc">item4.</p>
-                    <input id="table-input" type="number" placeholder ="Quantity">
+                    <input class="table-input" id="table-input" type="number" placeholder ="Quantity">
 
                     <p class="item-price"><span></span>499.00</p>
                 </div>

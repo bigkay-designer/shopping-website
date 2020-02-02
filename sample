@@ -203,3 +203,86 @@ cartImg.addEventListener('click', function() {
 //     let itemQuanTxt = itemQuanArr[i].value;
 //     let itemDescTxt = itemDescArr[i].innerHTML;
 //   }
+
+
+// sample table loop
+
+
+function myFunc() {
+  let table = document.querySelector('#test')
+  let row = table.insertRow(table.rows.length);
+  // let col = row.insertCell()
+  let ar = ['first', 'second', 'third', 'forth']
+  let pr = 3
+
+  for (i = 0; i < ar.length; i++){
+    let loop = ar[i]
+    let col = row.insertCell();
+    col.innerHTML = loop
+    let nr = i + 1;
+    if (nr % pr == 0 && nr != ar.length) {
+      row += '</tr><tr>';
+    }
+    // console.log(col.innerHTML = loop/)
+  }
+
+}
+
+
+/// last one 
+
+
+
+
+function updateCart() {
+
+  for (i = 0; i < itemQuan.length; i++){
+    let quanResult = itemQuan[i]
+    if (isNaN(quanResult.value) || quanResult.value <= 0) {
+      itemQuan.value = 1
+    }
+  }
+  let addInfo1 = event.target.parentElement.children[1].children[0].textContent;
+  let addInfo2 = event.target.parentElement.children[1].children[1].value ;
+  let addInfo3 = event.target.parentElement.children[1].children[2].textContent;
+  addInfo3 = parseInt(addInfo3);
+  let poundSign = (document.querySelectorAll('.item-price span').textContent =
+  '£');
+  subTotal = addInfo3 * addInfo2
+  // addInfo3 = poundSign + addInfo3;
+  // total = poundSign + total;
+  
+  //final price code
+  let tableData = []
+
+  let items = function (product, quantity, price, total) {
+    this.product = addInfo1
+    this.quantity = addInfo2
+    this.price = addInfo3
+    this.total = subTotal
+  }
+  tableData.push( new items)
+  // log(tableData)
+  let finalPrice = 0
+  for (n = 0; n < tableData.length; n++){
+    // finalPrice += tableData[n].total;
+    // $('#cart-total').html(finalPrice)
+    log(finalPrice  += tableData[n].total)
+}
+  
+  // startinng  the table
+  let tbl = document.querySelector('#cart-table')
+  let row = tbl.insertRow()
+  //adding the data to the table
+  for (let user of tableData) {
+    let cartList = row.innerHTML =
+      '<td>' + user.product + '</td>' +
+      '<td>' + user.quantity + '</td>' +
+      '<td>'+'£' + user.price + '</td>' +
+      '<td>' + user.total + '</td>';    
+    // console.log(cartList)
+    // log()
+  }
+  
+  
+}
