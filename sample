@@ -286,3 +286,38 @@ function updateCart() {
   
   
 }
+
+//latest
+
+// let addInfo1 = event.target.parentElement.children[1].children[0].textContent;
+// let addInfo2 = event.target.parentElement.children[1].children[1].value ;
+// let addInfo3 = event.target.parentElement.children[1].children[2].textContent;
+
+// cartBtn.forEach(function (CalcBtn) {
+//   CalcBtn.addEventListener('click', function (e) {
+//     updatePrice()
+//   })
+// })
+
+// function updatePrice() {
+//   let cartContainer = document.getElementsByClassName('item-paras')
+//   finalPrice = 0
+//   for (i = 0; i < cartContainer.length; i++){
+//     let cartRow = cartContainer[i]
+//     let priceELement = cartRow.getElementsByClassName('item-price')[0]
+//     let quantityElement = cartRow.getElementsByClassName('table-input')[0]
+//     cartPrice = parseInt(priceELement.innerText)
+//     cartQuantity = quantityElement.value
+//     // finalPrice = finalPrice + (cartPrice * cartQuantity)
+//     log(cartRow.children[2].innerText)
+    
+//   }
+
+// }
+
+// updatePrice()
+// for (i = 0; i < itemPriceArr.length; i++) {
+//     let itemPriceTxt = itemPriceArr[i].innerHTML;
+//     let itemQuanTxt = itemQuanArr[i].value;
+//     let itemDescTxt = itemDescArr[i].innerHTML;
+//   }

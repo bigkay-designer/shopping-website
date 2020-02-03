@@ -11,17 +11,23 @@ body {
   cursor: pointer;
 }
 
-#main-header #cart #cart-info table {
-  border: 1px solid black;
-  padding: 10px 8px 20px 8px;
+#main-header #table-data {
+  margin: 30px 0;
 }
 
-#main-header #cart #cart-info table th {
-  border: 2px solid black;
-  padding: 10px 15px;
-  text-align: center;
-  font-style: italic;
-  font-size: 20px;
+#main-header #table-data p {
+  display: inline;
+  padding: 10px 17px;
+  border: 1px solid black;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin: 15px 0 15px 10px;
+}
+
+#main-header #table-data div {
+  margin: 25px 0;
 }
 
 #main-header .headers {
