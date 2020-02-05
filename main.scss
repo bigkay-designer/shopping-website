@@ -30,21 +30,22 @@ body {
     // }
   }
 
-  #table-data{
+  #table-data {
     margin: 30px 0;
-    p{
-      display: inline;
-      padding: 10px 17px;
-      border: 1px solid black;
-      font-size: 18px;
-      font-weight: bold;
-      text-transform: capitalize;
-      letter-spacing: 1px;
-      margin:15px 0 15px 10px;
-    } 
 
-    div{
+    div {
       margin: 25px 0;
+
+      p {
+        display: inline;
+        padding: 10px 17px;
+        border: 1px solid black;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        margin: 15px 0 15px 10px;
+      }
     }
   }
   .headers {
