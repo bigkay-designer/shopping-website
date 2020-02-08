@@ -1,133 +1,105 @@
-if (document.readyState == 'loading') {
-  document.addEventListener('DOMContentLoaded', ready);
-} else {
-  ready();
+const log = console.log;
+let cartBtn = document.querySelectorAll('#cart-btn')
+
+cartBtn.forEach(function (btn) {
+  btn.addEventListener('click', function (event) {
+    let name = event.target.parentElement.children[1].children[0].innerText;
+    let price = event.target.parentElement.children[1].children[2].innerText
+    let count = event.target.parentElement.children[1].children[1].value = 1 ;
+    let c = 0
+    if (count == 1) {
+        c += count
+
+}
+   
+    log(count)
+    // log(name,price)
+    addToCart(name, price, count)
+    cartCount()
+    cartTotal()
+    cartFinalTotal()
+    displayCart()
+  })
+})
+
+
+let cart = [];
+
+let object = function (name, price, count, total) {
+  this.name = name
+  this.price = price
+  this.count = count
+  this.total = total
 }
 
-let cartImg = document.querySelector('#cart-img');
-let cartDiv = document.querySelector('#table-data');
-let log = console.log;
+      // display the data
 
-function ready() {
-  let AddBtn = document.querySelectorAll('#cart-btn');
-  for (i = 0; i < AddBtn.length; i++) {
-    let mainButton = AddBtn[i];
-
-    mainButton.addEventListener('click', function(event) {
-      addToCart();
-      te();
-    });
+function displayCart() {
+  let cartTable = document.querySelector('#table-data')
+  let cartArray = cart
+  let outPut = document.createElement('div')
+  for (let i in cart){
+    outPut.innerHTML =
+    '<p>' +
+    cartArray[i].name +
+    '</p>' +
+    '<p>' +
+    cartArray[i].count +
+    '</p>' +
+    '<p>' +
+    '£' +
+    cartArray[i].price +
+    '</p>' + 
+      '<p>' +'£' + 
+      cartArray[i].total +
+    '</p>';
+    cartTable.appendChild(outPut)
   }
 }
 
-// add to cart function
-function addToCart(/*product, quantity, price, total*/) {
-  let content = [
-    {
-      itemDesc: event.target.parentElement.children[1].children[0].innerText,
-      itemQuantity: event.target.parentElement.children[1].children[1].value,
-      itemPrice: event.target.parentElement.children[1].children[2].innerText
+    //add to cart function
+function addToCart(name, price, count, total) {
+  for (let i in cart) {
+    if (cart[i].name === name) {
+      cart[i].count += count;
+      log(cart)
+      return
     }
-  ];
-
-  // let priceNumber =parseInt(itemPrice)
-  // let quantityNumber =parseInt(itemQuantity)
-  log();
-  tableData = [];
-
-  let items = {
-    product: content[0].itemDesc,
-    quantity: content[0].itemQuantity,
-    price: content[0].itemPrice,
-    total: 0
-  };
-  let priceToNumber = parseInt(items.price);
-  let quantityToNumber = parseInt(items.quantity);
-  total = priceToNumber * quantityToNumber;
-
-  tableData.push(items);
-  // log(total);
-  // startinng  the table
-
-  let test = document.createElement('div');
-  // let s = 0;
-
-  // adding the data to the table
-  for (let user of tableData) {
-    // log(test);
-
-    cartDiv.appendChild(test);
-    test.innerHTML =
-      '<p>' +
-      user.product +
-      '</p>' +
-      '<p>' +
-      user.quantity +
-      '</p>' +
-      '<p>' +
-      '£' +
-      user.price +
-      '</p>';
-
-    // console.log(document.getElementsByClassName('te'));
   }
 
-  let totalDiv = document.querySelector('#total');
-  for (let tot of tableData) {
-    let div = document.createElement('div');
-    let p = document.createElement('p');
-    let txt = document.createTextNode(total);
-    p.appendChild(txt);
-    div.appendChild(p);
-    totalDiv.appendChild(div);
-    let pNumber = parseInt(p.innerText);
-    // log(pNumber);
+  let items = new object(name, price, count, total)
+  cart.push(items)
+}
 
-    log(totalDiv);
+    // counting carts
+
+function cartCount() {
+  let totalCount = 0
+  for (let i in cart) {
+    totalCount += cart[i].count
+    log(totalCount)
+  }
+}
+cartCount()
+
+    //  total cart items
+function cartTotal() {
+  for (let i in cart) {
+    cart[i].total = cart[i].price * cart[i].count
   }
 }
 
-// setTimeout(te, 3000);
+cartTotal()
 
-function te() {
-  let s = document.querySelectorAll('total');
-  let sumVal = 0;
+      // total cart function
 
-  for (i = 0; i < 5; i++) {
-    log('test');
+function cartFinalTotal() {
+  let finalPrice = 0;
+  for (let t in cart) {
+    finalPrice = finalPrice + cart[t].total
+    // log(finalPrice)
   }
+  $('#cart-total').html(finalPrice)
 }
-
-cartImg.addEventListener('click', function() {
-  $('#cart-info').toggle();
-  $('#cart-table').css('background-color', '#adcee9');
-});
-// update cart function
-// function updateCartTotal()
-// {
-//  let cartItemContainer = document.querySelectorAll('#table-data');
-// let finalTotal = 0;
-// for (i = 0; i < cartItemContainer.length; i++) {
-//   let cartData = cartItemContainer[i];
-//   let priceElement =
-//     event.target.parentElement.children[1].children[2].innerText;
-//   let quantityElement =
-//     event.target.parentElement.children[1].children[1].value;
-//   // log(priceElement, quantityElement);
-//   let priceNumber = parseInt(priceElement);
-//   let quantityNumber = parseInt(quantityElement);
-//   finalTotal = finalTotal + total[i];
-//   $('#cart-total').html(finalTotal);
-// log(finalTotal);
-// }
-// }
-
-// let main = document.querySelectorAll('#item p');
-// // console.log(main);
-
-// sumVal = 0;
-// for (i = 0; i < main.length; i++) {
-//   let r = main[i].innerHTML;
-//   sumVal = sumVal + parseInt(r);
-//   console.log(sumVal);
-// }
+  
+cartTotal()
